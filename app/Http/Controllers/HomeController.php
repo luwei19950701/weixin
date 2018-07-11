@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use EasyWeChat\Factory;
 
+use Overtrue\Socialite\User as SocialiteUser;
+
+
 class HomeController extends Controller
 {
     /**
@@ -55,10 +58,21 @@ class HomeController extends Controller
         \Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
 
         $app = app('wechat.official_account');
-        $app->server->push(function($message){
-            return "欢迎关注 overtrue！";
-        });
 
+        $officialAccount = EasyWeChat::officialAccount($app);
+        dd($officialAccount->user->get('oqV071J_F4ixcaTgmaMpGtl8bgXk'));
         return $app->server->serve();
     }
+
+//    public function testUser(){
+//        $user = new SocialiteUser([
+//            'id' => array_get($user, 'openid'),
+//            'name' => array_get($user, 'nickname'),
+//            'nickname' => array_get($user, 'nickname'),
+//            'avatar' => array_get($user, 'headimgurl'),
+//            'email' => null,
+//            'original' => [],
+//            'provider' => 'WeChat',
+//        ]);
+//    }
 }
