@@ -16,4 +16,4 @@ Route::get('/', function (){
 });
 
 
-Route::any('/wechat', '\App\Http\Controllers\HomeController@index');
+Route::any('/wechat', '\App\Http\Controllers\HomeController@serve');
