@@ -57,6 +57,7 @@ class HomeController extends Controller
     {
         $config = app('wechat.official_account');
 
+        dd($config);die;
         $app = Factory::officialAccount($config);
         dd($app->user->get('oqV071J_F4ixcaTgmaMpGtl8bgXk'));
         return $app->server->serve();
