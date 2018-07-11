@@ -41,7 +41,7 @@ class HomeController extends Controller
 
         $app = Factory::officialAccount($config);
 
-        dd($app);
+        dd($app->user);
         return view('home');
     }
 }
