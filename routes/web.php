@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function (){
+    return 1;
     return view('home');
 });
 
