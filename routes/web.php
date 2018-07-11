@@ -11,4 +11,9 @@
 |
 */
 
-Route::get('/', '\App\Http\Controllers\HomeController@index');
+Route::get('/', function (){
+    return view('home');
+});
+
+
+Route::any('/wechat', '\App\Http\Controllers\HomeController@index');
