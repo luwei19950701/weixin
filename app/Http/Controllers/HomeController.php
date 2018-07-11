@@ -55,12 +55,10 @@ class HomeController extends Controller
      */
     public function serve()
     {
-        \Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
+        $config = app('wechat.official_account');
 
-        $app = app('wechat.official_account');
-
-        $officialAccount = EasyWeChat::officialAccount($app);
-        dd($officialAccount->user->get('oqV071J_F4ixcaTgmaMpGtl8bgXk'));
+        $app = Factory::officialAccount($config);
+        dd($app->user->get('oqV071J_F4ixcaTgmaMpGtl8bgXk'));
         return $app->server->serve();
     }
 
