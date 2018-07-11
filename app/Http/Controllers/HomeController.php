@@ -55,9 +55,9 @@ class HomeController extends Controller
      */
     public function serve()
     {
-        $config = app('wechat.official_account');
+        $config = app('wechat.official_account.default');
 
-        var_dump($config);die;
+        dd($config);die;
         $app = Factory::officialAccount($config);
         dump($app);
         dd($app->user->get('oqV071J_F4ixcaTgmaMpGtl8bgXk'));
